@@ -4,6 +4,7 @@ import OutputSection from "./components/sections/OutputSection";
 import TypeSection from "./components/sections/typeSection/TypeSection";
 import DataSection from "./components/sections/DataSection";
 import "./App.css";
+import GenerateDiv from "./components/basicTags/GenerateDiv";
 
 export default class App extends Component {
   constructor() {
@@ -74,44 +75,51 @@ export default class App extends Component {
           content={
             <>
               <h1>Create your chart now!</h1>
-              <fieldset onChange={this.handleChange}>
-                <GenerateSection
-                  sectionClass="type-section"
-                  content={
-                    <TypeSection
-                      divClass1={`card-type ${
-                        this.state.type === "line" ? "active" : ""
-                      }`}
-                      divClass2={`card-type ${
-                        this.state.type === "pie" ? "active" : ""
-                      }`}
-                      divClass3={`card-type ${
-                        this.state.type === "bar" ? "active" : ""
-                      }`}
-                      divClass4={`card-type ${
-                        this.state.type === "radar" ? "active" : ""
-                      }`}
-                      divClass5={`card-type ${
-                        this.state.type === "doughnut" ? "active" : ""
-                      }`}
-                      divClass6={`card-type ${
-                        this.state.type === "polar" ? "active" : ""
-                      }`}
-                      inputOnclick={this.changeCard}
-                    />
-                  }
-                />
-                <GenerateSection
-                  sectionClass="data-section"
-                  content={
-                    <DataSection
-                      firstInputValue={this.state.title}
-                      secondInputValue={this.state.xValues}
-                      thirdInputValue={this.state.yValues}
-                    />
-                  }
-                />
-              </fieldset>
+              <GenerateDiv
+                divClass="container"
+                content={
+                  <>
+                    <fieldset onChange={this.handleChange}>
+                      <GenerateSection
+                        sectionClass="type-section"
+                        content={
+                          <TypeSection
+                            divClass1={`card-type ${
+                              this.state.type === "line" ? "active" : ""
+                            }`}
+                            divClass2={`card-type ${
+                              this.state.type === "pie" ? "active" : ""
+                            }`}
+                            divClass3={`card-type ${
+                              this.state.type === "bar" ? "active" : ""
+                            }`}
+                            divClass4={`card-type ${
+                              this.state.type === "radar" ? "active" : ""
+                            }`}
+                            divClass5={`card-type ${
+                              this.state.type === "doughnut" ? "active" : ""
+                            }`}
+                            divClass6={`card-type ${
+                              this.state.type === "polar" ? "active" : ""
+                            }`}
+                            inputOnclick={this.changeCard}
+                          />
+                        }
+                      />
+                      <GenerateSection
+                        sectionClass="data-section"
+                        content={
+                          <DataSection
+                            firstInputValue={this.state.title}
+                            secondInputValue={this.state.xValues}
+                            thirdInputValue={this.state.yValues}
+                          />
+                        }
+                      />
+                    </fieldset>
+                  </>
+                }
+              />
             </>
           }
         />
