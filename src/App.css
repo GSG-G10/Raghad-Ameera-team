@@ -159,6 +159,7 @@ h1 {
   align-items: center;
   justify-content: space-around;
   cursor: pointer;
+  text-transform: capitalize;
 }
 .card-type:hover {
   background-color: #435566;
