@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two&family=Patrick+Hand&family=Righteous&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.chart-page-container {
+  overflow: hidden;
+  background-color: #314152;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.fieldset-container {
+  width: 295px;
+  height: 94%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: moveSection 0.5s ease-in-out;
+  align-self: flex-start;
+  margin-top: 20px;
+}
+@keyframes moveSection {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin-top: 3vh;
+}
+.fieldset-title {
+  color: rgb(230, 230, 230);
+  font-size: 1rem;
+  margin-bottom: 7px;
+}
+img {
+  width: 40%;
+}
+.data-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 25vh;
+  margin-top: 15px;
+}
+.data-section label {
+  width: 100%;
+  animation: moveInput 0.9s ease-in-out;
+}
+@keyframes moveInput {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+.data-section input {
+  height: 6vh;
+  border-radius: 10px;
+  background-color: rgb(123 139 154);
+  outline: none;
+  border: none;
+  text-indent: 10px;
+  margin: 10px 0 18px;
+  width: 98%;
+  background: transparent;
+  box-shadow: 0 1.5px 7px rgba(0, 0, 0, 0.534);
+  color: wheat;
+}
+.data-section input::placeholder {
+  color: rgba(245, 241, 241, 0.938);
+}
+.output-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  width: calc(100% - 295px);
+  height: 95%;
+  border-radius: 20px 0 0 0;
+  margin-top: 35px;
+}
+.output-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+.output-container img {
+  width: 65%;
+  border-radius: 10px;
+  border: 1px solid #bdbbbb;
+  padding: 15px;
+}
+.output-title {
+  text-transform: capitalize;
+  background-color: #f8fafb;
+  width: 100%;
+  border-radius: 10px;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lobster Two", cursive;
+  letter-spacing: 5px;
+}
+h1 {
+  font-family: "Lobster Two", cursive;
+  color: #c0a038;
+}
+.type-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: moveInput 0.9s ease-in-out;
+}
+.cards-container {
+  margin-top: 9px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card-type {
+  width: 110px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: #293745;
+  list-style-type: none;
+  cursor: pointer;
+}
+.card-type label {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.card-type:hover {
+  background-color: #435566;
+}
+.card-type input {
+  display: none;
+}
+.card-type.active {
+  background-color: #c0a038;
+}
+@media only screen and (max-width: 425px) {
+  .chart-page-container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .fieldset-container {
+    width: 100%;
+  }
+  h1 {
+    margin: 20px 0;
+  }
+  .output-section {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  .output-container {
+    height: 60vh;
+  }
+  .output-container img {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .card-type {
+    width: 150px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .card-type {
+    width: 130px;
+  }
+}
