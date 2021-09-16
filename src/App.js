@@ -1,14 +1,20 @@
 import React, { Component } from "react";
-
+import "./App.css";
+import Pie from "./images/pie-chart.png";
+import Bar from "./images/bar-chart.png";
+import Line from "./images/line-chart.png";
+import Doughnut from "./images/doughnut.png";
+import Radar from "./images/radar-chart.png";
+import Polar from "./images/polar.png";
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      title: "chart",
-      xValues: [0],
-      yValues: [0],
+      title: "Chart Title",
+      xValues: [],
+      yValues: [],
       type: "line",
-      url: "http://www.letsracethailand.com/extensions/themes/gae_letracethailand101/staticfiles/images/placeholder-image.png"
+      url: "http://www.letsracethailand.com/extensions/themes/gae_letracethailand101/staticfiles/images/placeholder-image.png",
     };
   }
 
@@ -63,50 +69,133 @@ export default class App extends Component {
 
   render() {
     return (
-      <section>
-        <fieldset onChange={this.handleChange}>
-          <label>
-            Add the title of the chart
-            <input
-              type="text"
-              value={this.state.title}
-              placeholder="chart title"
-              name="title"
-            />
-          </label>
+      <main className="chart-page-container">
+        <section className="fieldset-container">
+          <h1>Create your chart now!</h1>
 
-          <label>
-            Choose the chart type:
-            <select name="type">
-              <option value="line">Line</option>
-              <option value="bar">Bar</option>
-              <option value="doughnut">Doughnut</option>
-              <option value="pie">Pie</option>
-              <option value="polarArea">Polar Area</option>
-            </select>
-          </label>
+          <fieldset onChange={this.handleChange}>
+            <section className="type-section">
+              <h3 className="fieldset-title">Chart Type</h3>
+              <div className="cards-container">
+                <div
+                  className={`card-type ${
+                    this.state.type === "line" ? "active" : ""
+                  }`}
+                >
+                  <label className="type-label">
+                    <img src={Line} alt="line chart" />
+                    <input
+                      onClick={this.changeCard}
+                      defaultChecked
+                      type="radio"
+                      value="line"
+                      name="chart-type"
+                    />
+                    Line
+                  </label>
+                </div>
 
-          <label>
-            Enter x-values seperated by a comma
-            <input
-              type="text"
-              value={this.state.xValues}
-              placeholder="num1,num2,num3, ..."
-              name="xValues"
-            />
-          </label>
-          <label>
-            Enter y-values seperated by a comma
-            <input
-              type="text"
-              value={this.state.yValues}
-              placeholder="num1,num2,num3, ..."
-              name="yValues"
-            />
-          </label>
-        </fieldset>
-        <img src={this.state.url} alt="data chart" />
-      </section>
+                <div
+                  className={`card-type ${
+                    this.state.type === "pie" ? "active" : ""
+                  }`}
+                >
+                  {" "}
+                  <label className="type-label">
+                    <img src={Pie} alt="pie chart" />
+                    <input type="radio" value="pie" name="chart-type" />
+                    Pie
+                  </label>
+                </div>
+                <div
+                  className={`card-type ${
+                    this.state.type === "bar" ? "active" : ""
+                  }`}
+                >
+                  {" "}
+                  <label className="type-label">
+                    <img src={Bar} alt="bar chart" />
+                    <input type="radio" value="bar" name="chart-type" />
+                    Bar
+                  </label>
+                </div>
+                <div
+                  className={`card-type ${
+                    this.state.type === "doughnut" ? "active" : ""
+                  }`}
+                >
+                  {" "}
+                  <label className="type-label">
+                    <img src={Doughnut} alt="doughnut chart" />
+                    <input type="radio" value="doughnut" name="chart-type" />
+                    Doughnut
+                  </label>
+                </div>
+                <div
+                  className={`card-type ${
+                    this.state.type === "radar" ? "active" : ""
+                  }`}
+                >
+                  {" "}
+                  <label className="type-label">
+                    <img src={Radar} alt="radar chart" />
+                    <input type="radio" value="radar" name="chart-type" />
+                    Radar
+                  </label>
+                </div>
+                <div
+                  className={`card-type ${
+                    this.state.type === "polarArea" ? "active" : ""
+                  }`}
+                >
+                  {" "}
+                  <label className="type-label">
+                    <img src={Polar} alt="polar chart" />
+                    <input type="radio" value="polarArea" name="chart-type" />
+                    Polar
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <section className="data-section">
+              <h3 className="fieldset-title">Chart Data</h3>
+
+              <label>
+                <input
+                  type="text"
+                  value={this.state.title}
+                  placeholder="chart title"
+                  name="title"
+                />
+              </label>
+
+              <label>
+                <input
+                  type="text"
+                  value={this.state.xValues}
+                  placeholder="x-values seperated by (,)"
+                  name="xValues"
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  value={this.state.yValues}
+                  placeholder="y-values seperated by (,)"
+                  name="yValues"
+                />
+              </label>
+            </section>
+          </fieldset>
+        </section>
+        <section className="output-section">
+          <h3 className="output-title">{`${this.state.type} Chart`}</h3>
+          <div className="output-container">
+            <img src={this.state.url} alt="data chart" />
+          </div>
+        </section>
+      </main>
     );
   }
 }
